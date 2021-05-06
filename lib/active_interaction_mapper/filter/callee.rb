@@ -1,4 +1,4 @@
-module CodeMapper
+module ActiveInteractionMapper
   module Filter
     class Callee
       def initialize(callee_matcher)

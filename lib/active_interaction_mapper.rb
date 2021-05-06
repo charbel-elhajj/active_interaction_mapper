@@ -26,8 +26,8 @@ module ActiveInteractionMapper
     filters << Filter::Callee.new(filter) if filter
     filters << Filter::StartAt.new(start_at) if start_at
     filters << Filter::MaxDepth.new(max_depth) if max_depth
-
-    tracer = Tracer.new(filters: filters, output: output)
+    tracer = Tracer.new(filters: filters, output: Output::Dot.new)
+    # tracer = Tracer.new(filters: filters, output: output)
     tracer.enable
 
     begin
