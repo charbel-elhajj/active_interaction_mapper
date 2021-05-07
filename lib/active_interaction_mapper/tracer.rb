@@ -32,13 +32,13 @@ module ActiveInteractionMapper
 
 
         next if @filters.any?{ |filter| !filter.keep?(tp, normalized_class_name) }
-        if keep?(tp, normalized_class_name)
+
           if tp.event == :call || tp.event == :c_call
             @output.push(tp, normalized_class_name)
           elsif tp.event == :return || tp.event == :c_return
             @output.pop(tp, normalized_class_name)
           end
-        end
+
       end
     end
   end

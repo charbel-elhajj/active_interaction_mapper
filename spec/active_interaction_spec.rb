@@ -1,3 +1,8 @@
+require 'active_interaction_example/active_interaction_a'
+require 'active_interaction_example/active_interaction_b'
+require 'active_interaction_example/active_interaction_c'
+require 'active_interaction_example/active_interaction_d'
+require 'active_interaction_example/active_interaction_e'
 
 RSpec.describe ActiveInteractionExample do
   before do |example|
