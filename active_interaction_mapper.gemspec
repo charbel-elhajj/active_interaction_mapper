@@ -13,11 +13,11 @@ Gem::Specification.new do |spec|
                         This is done by tracking the .execute methode that is overridden in each class inheriting from ActiveInteraction.\n
                         To be able to trace function calls, I used Ruby's TracePoint class and to draw the graphs I used the 'ruby-graphviz' gem.\n
                         Note that you need to install GraphViz in your environment and have its path in your path environment variable to be able to draw graphs.\n"
-  spec.homepage      = "https://github.com/charbel-elhajj/active_interaction_mapper"
+  spec.homepage      = "https://rubygems.org/gems/active_interaction_mapper"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
-  spec.metadata["allowed_push_host"] = "https://github.com/charbel-elhajj/active_interaction_mapper"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = 'https://github.com/charbel-elhajj/active_interaction_mapper'
   spec.metadata["source_code_uri"] = "https://github.com/charbel-elhajj/active_interaction_mapper"
