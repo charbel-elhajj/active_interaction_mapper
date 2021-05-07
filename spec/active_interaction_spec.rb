@@ -9,7 +9,7 @@ RSpec.describe ActiveInteractionExample do
     puts example.metadata[:example_group][:file_path]
   end
   around do |example|
-    ActiveInteractionMapper.trace(folder_name: 'xxx', file_name: 'yyy') do
+    ActiveInteractionMapper.trace(folder_name: 'xxx', file_name: 'yyy', start_at: "ActiveInteractionExample::ActiveInteractionB") do
       example.call
     end
   end

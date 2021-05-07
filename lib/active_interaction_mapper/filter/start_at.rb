@@ -8,14 +8,14 @@ module ActiveInteractionMapper
       end
 
       def keep?(tp, normalized_class_name)
-        class_and_method = "#{normalized_class_name}.#{tp.method_id}"
 
-        if !@started && call_event?(tp) && matches?(class_and_method)
+
+        if !@started && call_event?(tp) && matches?(normalized_class_name)
           @started = true
         end
 
         if @started && call_event?(tp)
-          @stack << class_and_method
+          @stack << normalized_class_name
           return true
         end
 
@@ -40,12 +40,12 @@ module ActiveInteractionMapper
         tp.event == :return || tp.event == :c_return
       end
 
-      def matches?(class_and_method)
+      def matches?(normalized_class_name)
         case @start_matcher
         when Regexp
-          (@start_matcher =~ class_and_method) != nil
+          (@start_matcher =~ normalized_class_name) != nil
         when String
-          @start_matcher == class_and_method
+          @start_matcher == normalized_class_name
         end
       end
     end
