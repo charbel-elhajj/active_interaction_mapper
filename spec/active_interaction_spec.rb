@@ -9,18 +9,12 @@ RSpec.describe ActiveInteractionExample do
     puts example.metadata[:example_group][:file_path]
   end
   around do |example|
-    ActiveInteractionMapper.trace(output_image: false,folder_name: 'xxx', file_name: 'yyy', start_at: 'ActiveInteractionExample::ActiveInteractionB') do
+    ActiveInteractionMapper.trace(output_image: false,folder_name: 'xxx', file_name: 'yyy') do
       example.call
     end
   end
   it "works" do
-
-
-
       outcome = ActiveInteractionExample::ActiveInteractionA.run()
       expect(outcome.result).to eq(true)
-
-
-
   end
 end

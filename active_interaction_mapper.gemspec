@@ -8,8 +8,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["charbel-elhajj"]
   spec.email         = ["charbelelhajj99@hotmail.com"]
 
-  spec.summary       = "test"
-  spec.description   = "test"
+  spec.summary       = "Allows to track the interactions between ActiveInteraction"
+  spec.description   = "This gem allows the tracking of ActiveInteractions interactions.\n
+                        This is done by tracking the .execute methode that is overridden in each class inheriting from ActiveInteraction.\n
+                        To be able to trace function calls, I used Ruby's TracePoint class and to draw the graphs I used the 'ruby-graphviz' gem.\n
+                        Note that you need to install GraphViz in your environment and have its path in your path environment variable to be able to draw graphs.\n"
   spec.homepage      = "https://github.com/charbel-elhajj/active_interaction_mapper"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
