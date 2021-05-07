@@ -21,13 +21,16 @@ module ActiveInteractionMapper
   class Error < StandardError; end
   # Your code goes here...
 
-  def self.trace(filter: nil, start_at: nil, max_depth: nil, output: ActiveInteractionMapper::Output::Text.new($stdout), &block)
+  def self.trace(start_at: nil, max_depth: nil, output_image: true, folder_name:'', file_name:'', &block)
     filters = []
-    filters << Filter::Callee.new(filter) if filter
     filters << Filter::StartAt.new(start_at) if start_at
     filters << Filter::MaxDepth.new(max_depth) if max_depth
-    tracer = Tracer.new(filters: filters, output: Output::Dot.new)
-    # tracer = Tracer.new(filters: filters, output: output)
+    if output_image
+      output = Output::Dot.new(folder_name: folder_name, file_name: file_name)
+    else
+      output = ActiveInteractionMapper::Output::Text.new($stdout)
+    end
+    tracer = Tracer.new(filters: filters, output: output)
     tracer.enable
 
     begin

@@ -2,7 +2,7 @@ module ActiveInteractionExample
   class ActiveInteractionE < ActiveInteraction::Base
 
     def execute
-      puts 'E'
+      ActiveInteractionC.run
       true
     end
 
