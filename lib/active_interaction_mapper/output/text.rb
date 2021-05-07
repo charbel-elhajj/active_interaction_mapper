@@ -7,7 +7,7 @@ module ActiveInteractionMapper
       end
 
       def push(tp, normalized_class_name)
-        @io.puts "#{@indent}#{normalized_class_name}.#{tp.method_id.to_s}\n"
+        @io.puts "#{@indent}#{normalized_class_name}\n"
         @indent << '  '
       end
 
