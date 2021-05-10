@@ -13,4 +13,4 @@ gem "rubocop", "~> 1.7"
 
 gem "active_interaction", "~> 4.0"
 
-gem 'ruby-graphviz'
+gem 'ruby-graphviz', '~> 1.2.5'
