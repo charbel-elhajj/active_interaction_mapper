@@ -5,6 +5,7 @@ module ActiveInteractionExample
 
       ActiveInteractionD.run
       ActiveInteractionE.run
+      ActiveInteractionE.run
       true
     end
 

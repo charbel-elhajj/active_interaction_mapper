@@ -6,7 +6,7 @@ require 'date'
 module ActiveInteractionMapper
   module Output
     class Dot
-      def initialize(folder_name:'', file_name:'')
+      def initialize(folder_name:'', file_name:'', show_duplicated_path: false)
         d = DateTime.now
         d_string = d.strftime("%d%m%Y_%H%M%S")
         if folder_name.empty?
@@ -19,6 +19,8 @@ module ActiveInteractionMapper
         else
           @file_name = "#{file_name}_#{d_string}.png"
         end
+        @show_duplicated_path = show_duplicated_path
+        @edges = []
         @stack = []
         @graph = GraphViz.new('CodeMapper')
 
@@ -29,7 +31,14 @@ module ActiveInteractionMapper
 
 
         if @stack != []
-          @graph.add_edge(@stack.last,node)
+          if !@show_duplicated_path
+            if !@edges.include? "#{@stack.last};#{node}"
+              @graph.add_edge(@stack.last,node)
+              @edges << "#{@stack.last};#{node}"
+            end
+          else
+            @graph.add_edge(@stack.last,node)
+          end
         end
 
         @stack << node

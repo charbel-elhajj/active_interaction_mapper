@@ -13,13 +13,13 @@ require "active_interaction_mapper/output/dot"
 module ActiveInteractionMapper
   class Error < StandardError; end
 
-  def self.trace(start_at: nil, output_image: true, folder_name:'', file_name:'', &block)
+  def self.trace(start_at: nil, output_image: true, folder_name:'', file_name:'', show_duplicated_path: false, &block)
     filters = []
     filters << Filter::StartAt.new(start_at) if start_at
     filters << Filter::ActiveInteractionFilter.new
 
     if output_image
-      output = ActiveInteractionMapper::Output::Dot.new(folder_name: folder_name, file_name: file_name)
+      output = ActiveInteractionMapper::Output::Dot.new(folder_name: folder_name, file_name: file_name, show_duplicated_path: show_duplicated_path)
     else
       output = ActiveInteractionMapper::Output::Text.new($stdout)
     end
